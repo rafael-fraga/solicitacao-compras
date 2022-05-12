@@ -1,0 +1,15 @@
+{
+  "name": "notFound",
+  "component": "ZdRow",
+  "cssClass": "fill-height",
+  "justify": "center",
+  "align": "center",
+  "children": [
+    {
+      "name": "text",
+      "component": "ZdText",
+      "text": "NOT FOUND",
+      "tag": "h1"
+    }
+  ]
+}

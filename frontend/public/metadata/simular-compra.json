@@ -1,0 +1,575 @@
+{
+  "name": "zeedhi",
+  "component": "ZdContainer",
+  "cssStyle": "max-width: 1000px;",
+  "children": [
+    {
+      "name": "raisedCard",
+      "component": "ZdCard",
+      "children": [
+        {
+          "name": "zeedhi-example-text",
+          "component": "ZdRow",
+          "justify": "center",
+          "align": "center",
+          "children": [
+            {
+              "name": "text",
+              "component": "ZdText",
+              "text": "Simular compra",
+              "cssStyle": "padding-bottom:20px; font-size: 20px",
+              "tag": "h1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "info-produtos",
+      "component": "ZdCard",
+      "raised": true,
+      "children": [
+        {
+          "name": "denseForm",
+          "component": "ZdForm",
+          "children": [
+            {
+              "name": "tag",
+              "component": "ZdSelect",
+              "label": "Produto",
+              "datasource": {
+                "type": "simple",
+                "items": [
+                  "Picanha",
+                  "Carvao",
+                  "Fruta",
+                  "Md",
+                  "Bala",
+                  "Cocaine",
+                  "XANAX",
+                  "ritalina"
+                ]
+              }
+            },
+            {
+              "name": "tag",
+              "component": "ZdSelect",
+              "label": "Fornecedor",
+              "datasource": {
+                "type": "simple",
+                "items": [
+                  "ABC",
+                  "Super Nosso",
+                  "Carrefour",
+                  "Super n sei oq"
+                ]
+              }
+            },
+            {
+              "name": "tag",
+              "component": "ZdSelect",
+              "label": "Tipo (unidade)",
+              "datasource": {
+                "type": "simple",
+                "items": [
+                  "Unidade",
+                  "KG",
+                  "G"
+                ]
+              }
+            },
+            {
+              "name": "Prefix",
+              "component": "ZdTextInput",
+              "label": "Valor",
+              "prefix": "R$"
+            },
+            {
+              "name": "divisor",
+              "component": "ZdDivisor"
+            },
+            {
+              "name": "footer-basic-usage-ds",
+              "component": "ZdFooter",
+              "color": "white",
+              "rightSlot": [
+                {
+                  "name": "infoButton",
+                  "component": "ZdButton",
+                  "label": "Limpar",
+                  "color": "error"
+                },
+                {
+                  "name": "infoButton",
+                  "component": "ZdButton",
+                  "label": "Salvar",
+                  "color": "success"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "raisedCard",
+      "component": "ZdCard",
+      "raised": true,
+      "children": [
+        {
+          "name": "text",
+          "component": "ZdText",
+          "text": "Ranking do produto: {nome do produto}",
+          "justify": "center",
+          "align": "center",
+          "cssStyle": "padding:0px 0px 20px 0px; font-size: 10px",
+          "tag": "h1"
+        },
+        {
+          "name": "grid-inlineEditComps",
+          "component": "ZdGridEditable",
+          "showFooter": false,
+          "gridHeight": "260px",
+          "toolbarSlot": [
+            {
+              "name": "cancelButton-inlineEditComps",
+              "component": "ZdButton",
+              "iconName": "close",
+              "label": "Cancelar",
+              "color": "error",
+              "flat": true,
+              "disabled": "{{GridEditableController.isNotInlineCompsEditing}}",
+              "events": {
+                "click": "{{GridEditableController.cancelEditingComps}}"
+              }
+            },
+            {
+              "name": "saveButton-inlineEditComps",
+              "component": "ZdButton",
+              "iconName": "complete",
+              "label": "Salvar",
+              "color": "success",
+              "flat": true,
+              "disabled": "{{GridEditableController.isNotInlineCompsEditing}}",
+              "events": {
+                "click": "{{GridEditableController.saveEditingComps}}"
+              }
+            }
+          ],
+          "columns": [
+            {
+              "name": "fornecedor",
+              "label": "Fornecedor",
+              "editable": false,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdText"
+              }
+            },
+            {
+              "name": "valor",
+              "label": "Valor/{unidade}",
+              "editable": true,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdNumber",
+                "mask": {
+                  "currencySymbol": "R$ "
+                }
+              }
+            },
+            {
+              "name": "quantidade",
+              "label": "Quantidade",
+              "editable": true,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdNumber",
+                "decimalPlaces": 0
+              }
+            },
+            {
+              "name": "checkbox",
+              "label": "Selecionar produto",
+              "editable": true,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdCheckbox",
+                "trueIcon": "checkboxOn",
+                "falseIcon": "checkboxOff"
+              }
+            }
+          ],
+          "datasource": {
+            "uniqueKey": "id",
+            "data": [
+              {
+                "fornecedor": "Super nosso",
+                "valor": 1500,
+                "quantidade": 1,
+                "checkbox": false
+              },
+              {
+                "fornecedor": "ABC",
+                "valor": 320,
+                "quantidade": 2,
+                "checkbox": false
+              },
+              {
+                "fornecedor": "Super nosso",
+                "valor": 420,
+                "quantidade": 1
+              },
+              {
+                "fornecedor": "ABC",
+                "valor": 100,
+                "quantidade": 2
+              },
+              {
+                "fornecedor": "Super nosso",
+                "valor": 4200,
+                "quantidade": 1
+              },
+              {
+                "fornecedor": "ABC",
+                "valor": 500,
+                "quantidade": 2
+              },              {
+                "fornecedor": "Super nosso",
+                "valor": 900,
+                "quantidade": 1
+              },
+              {
+                "fornecedor": "ABC",
+                "valor": 350,
+                "quantidade": 2
+              }
+            ]
+          },
+          "events": {
+            "inlineEdit": "{{GridEditableController.onInlineEditComps}}"
+          }
+        },
+        {
+          "name": "basicUsageDivider",
+          "component": "ZdDivider",
+          "cssStyle": "padding-bottom: 30px;"
+        },
+        {
+          "name": "basicUsageDivider",
+          "component": "ZdDivider",
+          "cssStyle": "padding-bottom: 30px;"
+        },
+        {
+          "name": "footer-basic-usage-ds",
+          "component": "ZdFooter",
+          "color": "white",
+          "leftSlot": [
+            {
+              "name": "button-basic-usage-dsadsa",
+              "component": "ZdButton",
+              "label": "Quantidade final: 5 produtos",
+              "color": "hexa color",
+              "flat": true
+            }
+          ],
+          "rightSlot": [
+            {
+              "name": "button-basic-usage-dsadsa",
+              "component": "ZdButton",
+              "iconName": "messageAlert",
+              "label": "Preco final do produto: R$ 500",
+              "color": "warning"
+            },
+            {
+              "name": "button-basic-usage-dsa",
+              "component": "ZdButton",
+              "label": "Adicionar produto",
+              "color": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "raisedCard",
+      "component": "ZdCard",
+      "raised": true,
+      "children": [
+        {
+          "name": "text",
+          "component": "ZdText",
+          "text": "Gerar solicitação",
+          "justify": "center",
+          "align": "center",
+          "cssStyle": "padding:0px 0px 20px 0px; font-size: 10px",
+          "tag": "h1"
+        },
+        {
+            "name": "button-basic-usage-dsadsa",
+            "component": "ZdButton",
+            "label": "Preco final: R$ 12.560",
+            "color": "alert",
+            "absolute": true,
+            "right": true
+        },
+        {
+          "name": "grid-inlineEditComps",
+          "component": "ZdGridEditable",
+          "showFooter": false,
+          "gridHeight": "260px",
+          "toolbarSlot": [
+            {
+              "name": "cancelButton-inlineEditComps",
+              "component": "ZdButton",
+              "iconName": "close",
+              "label": "Cancelar",
+              "color": "error",
+              "flat": true,
+              "disabled": "{{GridEditableController.isNotInlineCompsEditing}}",
+              "events": {
+                "click": "{{GridEditableController.cancelEditingComps}}"
+              }
+            },
+            {
+              "name": "saveButton-inlineEditComps",
+              "component": "ZdButton",
+              "iconName": "complete",
+              "label": "Salvar",
+              "color": "success",
+              "flat": true,
+              "disabled": "{{GridEditableController.isNotInlineCompsEditing}}",
+              "events": {
+                "click": "{{GridEditableController.saveEditingComps}}"
+              }
+            }
+          ],
+          "columns": [
+            {
+              "name": "item",
+              "label": "Item",
+              "editable": false,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdText"
+              }
+            },
+            {
+              "name": "fornecedor",
+              "label": "Fornecedor",
+              "editable": false,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdText"
+              }
+            },
+            {
+              "name": "valor",
+              "label": "Valor/{unidade}",
+              "editable": false,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdNumber",
+                "mask": {
+                  "currencySymbol": "R$ "
+                }
+              }
+            },
+            {
+              "name": "quantidade",
+              "label": "Quantidade",
+              "editable": true,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdNumber"
+              }
+            },
+            {
+              "name": "total",
+              "label": "Total",
+              "editable": false,
+              "minWidth": "150px",
+              "componentProps": {
+                "component": "ZdNumber",
+                "mask": {
+                  "currencySymbol": "R$ "
+                }
+              }
+            },
+            {
+              "name": "action3",
+              "type": "action",
+              "children": [
+                {
+                  "name": "btnTwitter",
+                  "component": "ZdButton",
+                  "icon": true,
+                  "small": true,
+                  "color": "red",
+                  "iconName": "mdi-trash-can-outline",
+                  "conditions": {
+                    "isVisible": "{{GridController.isTwitterActionVisible}}"
+                  },
+                  "events": {
+                    "click": "{{GridController.buttonAction}}"
+                  }
+                }
+              ]
+            }
+          ],
+          "datasource": {
+            "uniqueKey": "id",
+            "data": [
+              {
+                "item": "nome do item",
+                "fornecedor": "Super nosso",
+                "valor": 1500,
+                "quantidade": 1,
+                "total": 10000
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "ABC",
+                "valor": 320,
+                "quantidade": 2,
+                "total": 3232
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "Super nosso",
+                "valor": 420,
+                "quantidade": 1,
+                "total": 6565
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "ABC",
+                "valor": 100,
+                "quantidade": 2,
+                "total": 121
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "Super nosso",
+                "valor": 4200,
+                "quantidade": 1,
+                "total": 5325
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "ABC",
+                "valor": 500,
+                "quantidade": 2,
+                "total": 54353
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "Super nosso",
+                "valor": 900,
+                "quantidade": 1,
+                "total": 1121
+              },
+              {
+                "item": "nome do item",
+                "fornecedor": "ABC",
+                "valor": 350,
+                "quantidade": 2,
+                "total": 45343
+              }
+            ]
+          },
+          "events": {
+            "inlineEdit": "{{GridEditableController.onInlineEditComps}}"
+          }
+        },
+        {
+          "name": "dslsda",
+          "component": "ZdDivider",
+          "cssStyle": "padding-bottom: 40px"
+        },
+        {
+          "name": "footer-basic-usage-ds",
+          "component": "ZdFooter",
+          "color": "white",
+          "leftSlot": [
+            {
+              "name": "button-basic-usage-dsadsa",
+              "component": "ZdButton",
+              "label": "Quantidade final: 5 produtos",
+              "color": "hexa color",
+              "flat": true
+            }
+          ],
+          "rightSlot": [
+            {
+              "name": "button-basic-usage-dsa",
+              "component": "ZdButton",
+              "label": "Salvar solicitação (CSV)",
+              "color": "success"
+            },
+            {
+              "name": "button-basic-usage-dsa",
+              "component": "ZdButton",
+              "label": "Enviar solicitação",
+              "color": "success"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "collapseCardBasicUsage",
+      "component": "ZdCollapseCard",
+      "cssClass": "zd-pa-2",
+      "header": [
+        {
+          "name": "cardTextBasicUsage",
+          "component": "ZdText",
+          "text": "Click me to open"
+        }
+      ],
+      "children": [
+        {
+          "name": "basicUsageDivider",
+          "component": "ZdDivider",
+          "class": "zd-mb-5"
+        },
+        {
+          "name": "textBasicUsage",
+          "component": "ZdText",
+          "text": "<h1>aqui mostra</h1>"
+        }
+      ]
+    }
+  ]
+}
