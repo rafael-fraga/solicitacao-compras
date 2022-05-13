@@ -1,0 +1,27 @@
+{
+  "name": "rowResult",
+  "component": "ZdRow",
+  "cssClass": "zd-ma-2",
+  "children": [
+    {
+      "name": "colResult",
+      "component": "ZdCol",
+      "cols": 12,
+      "children": [
+        {
+          "name": "header-basic-usage-example",
+          "component": "ZdHeader",
+          "cssStyle": "margin-bottom: 5%; border-radius: 9px",
+          "centerSlot": [
+            {
+              "name": "main-text",
+              "component": "ZdText",
+              "cssStyle": "color:white;",
+              "text": "Solicitação de compra"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

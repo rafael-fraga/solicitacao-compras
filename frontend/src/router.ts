@@ -13,23 +13,9 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import('./views/Home.vue'),
-    },
-    {
-      path: '/simular-compra',
-      name: 'simular-compra',
       component: ZdFramePage,
       props: () => ({
-        path: 'simular-compra',
-        local: true,
-      }),
-    },
-    {
-      path: '/login',
-      name: 'login',
-      component: ZdFramePage,
-      props: () => ({
-        path: 'login',
+        path: 'home',
         local: true,
       }),
     },
