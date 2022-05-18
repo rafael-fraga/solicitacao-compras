@@ -1,0 +1,183 @@
+{
+  "name": "raisedCard",
+  "component": "ZdCard",
+  "justify": "center",
+  "align": "center",
+  "raised": true,
+  "children": [
+    {
+      "name": "text",
+      "component": "ZdText",
+      "text": "Ranking do produto: {{RankingController.xd}}",
+      "justify": "center",
+      "align": "center",
+      "cssStyle": "padding:0px 0px 20px 0px; font-size: 10px",
+      "tag": "h1"
+    },
+    {
+      "name": "grid-inlineEditComps",
+      "component": "ZdGridEditable",
+      "showFooter": false,
+      "gridHeight": "260px",
+      "toolbarSlot": [
+        {
+          "name": "cancelButton-inlineEditComps",
+          "component": "ZdButton",
+          "iconName": "close",
+          "label": "Cancelar",
+          "color": "error",
+          "flat": true,
+          "disabled": "{{GridEditableController.isNotInlineCompsEditing}}",
+          "events": {
+            "click": "{{GridEditableController.cancelEditingComps}}"
+          }
+        },
+        {
+          "name": "saveButton-inlineEditComps",
+          "component": "ZdButton",
+          "iconName": "complete",
+          "label": "Salvar",
+          "color": "success",
+          "flat": true,
+          "disabled": "{{GridEditableController.isNotInlineCompsEditing}}",
+          "events": {
+            "click": "{{GridEditableController.saveEditingComps}}"
+          }
+        }
+      ],
+      "columns": [
+        {
+          "name": "fornecedor",
+          "label": "Fornecedor",
+          "editable": false,
+          "minWidth": "150px",
+          "componentProps": {
+            "component": "ZdText"
+          }
+        },
+        {
+          "name": "valor",
+          "label": "Valor/{unidade}",
+          "editable": true,
+          "minWidth": "150px",
+          "componentProps": {
+            "component": "ZdNumber",
+            "mask": {
+              "currencySymbol": "R$ "
+            }
+          }
+        },
+        {
+          "name": "quantidade",
+          "label": "Quantidade",
+          "editable": true,
+          "minWidth": "150px",
+          "componentProps": {
+            "component": "ZdNumber",
+            "decimalPlaces": 0
+          }
+        },
+        {
+          "name": "checkbox",
+          "label": "Selecionar produto",
+          "editable": true,
+          "minWidth": "150px",
+          "componentProps": {
+            "component": "ZdCheckbox",
+            "trueIcon": "checkboxOn",
+            "falseIcon": "checkboxOff"
+          }
+        }
+      ],
+      "datasource": {
+        "uniqueKey": "id",
+        "data": [
+          {
+            "fornecedor": "Super nosso",
+            "valor": 1500,
+            "quantidade": 1,
+            "checkbox": false
+          },
+          {
+            "fornecedor": "ABC",
+            "valor": 320,
+            "quantidade": 2,
+            "checkbox": false
+          },
+          {
+            "fornecedor": "Super nosso",
+            "valor": 420,
+            "quantidade": 1
+          },
+          {
+            "fornecedor": "ABC",
+            "valor": 100,
+            "quantidade": 2
+          },
+          {
+            "fornecedor": "Super nosso",
+            "valor": 4200,
+            "quantidade": 1
+          },
+          {
+            "fornecedor": "ABC",
+            "valor": 500,
+            "quantidade": 2
+          },
+          {
+            "fornecedor": "Super nosso",
+            "valor": 900,
+            "quantidade": 1
+          },
+          {
+            "fornecedor": "ABC",
+            "valor": 350,
+            "quantidade": 2
+          }
+        ]
+      },
+      "events": {
+        "inlineEdit": "{{GridEditableController.onInlineEditComps}}"
+      }
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "basicUsageDivider",
+      "component": "ZdDivider",
+      "cssStyle": "padding-bottom: 30px;"
+    },
+    {
+      "name": "footer-basic-usage-ds",
+      "component": "ZdFooter",
+      "color": "white",
+      "leftSlot": [
+        {
+          "name": "button-basic-usage-dsadsa",
+          "component": "ZdButton",
+          "label": "Quantidade final: 5 produtos",
+          "color": "hexa color",
+          "flat": true
+        }
+      ],
+      "rightSlot": [
+        {
+          "name": "button-basic-usage-dsadsa",
+          "component": "ZdButton",
+          "iconName": "messageAlert",
+          "label": "Preco final do produto: R$ 500",
+          "color": "warning"
+        },
+        {
+          "name": "button-basic-usage-dsa",
+          "component": "ZdButton",
+          "label": "Adicionar produto",
+          "color": "success"
+        }
+      ]
+    }
+  ]
+}

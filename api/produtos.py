@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 data_dir = os.path.dirname(os.getcwd()) + '\\data\\'
 
-@app.route('/', methods=['GET'])
+@app.route('/products', methods=['GET'])
 def index():
 
     f = open(data_dir + 'produtos.json', 'r')

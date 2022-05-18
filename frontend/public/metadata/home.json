@@ -1,0 +1,57 @@
+{
+  "name": "brazas-1",
+  "component": "ZdContainer",
+  "cssStyle": "background: radial-gradient(circle, rgba(45,101,120,1) 0%, rgba(18,41,61,1) 100%);",
+  "children": [
+    {
+      "name": "brazas",
+      "component": "ZdContainer",
+      "cssStyle": "width: 80%;",
+      "children": [
+        {
+          "name": "cardBasicUsage",
+          "component": "ZdCard",
+          "cssClass": "zd-ma-6",
+          "elevation": 6,
+          "outlined": true,
+          "children": [
+            {
+              "name": "header",
+              "component": "ZdFrame",
+              "path": "header",
+              "local": true
+            },
+            {
+              "name": "input",
+              "component": "ZdFrame",
+              "path": "input",
+              "local": true
+            },
+            {
+              "name": "basicUsageDivider",
+              "component": "ZdDivider",
+              "cssStyle": "padding-bottom: 30px;"
+            },
+            {
+              "name": "ranking",
+              "component": "ZdFrame",
+              "path": "ranking",
+              "local": true
+            },
+            {
+              "name": "basicUsageDivider",
+              "component": "ZdDivider",
+              "cssStyle": "padding-bottom: 30px;"
+            },
+            {
+              "name": "request",
+              "component": "ZdFrame",
+              "path": "request",
+              "local": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
