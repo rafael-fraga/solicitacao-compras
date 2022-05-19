@@ -29,15 +29,10 @@ prazos = prazos[np.isin(prazos.index, compras.index)]
 """Datas"""
 
 hoje = datetime.today()
-last = hoje + timedelta(prazos.max().max())
-sextas = [hoje + timedelta(hoje.weekday())]
-while max(sextas) < last:
-  sextas.append(max(sextas) + timedelta(7))
 
 """Pedido"""
 
 pedido = pd.concat([compras, prazos[np.isin(prazos.index, compras.index)]], axis=1)
-
 for fornecedor in pedido.index:
   for i, parcela in zip(['parcela 1', 'parcela 2', 'parcela 3'], pedido.loc[fornecedor, ['parcela 1', 'parcela 2', 'parcela 3']]):
     if pd.notna(parcela):
@@ -54,10 +49,12 @@ agenda.dropna(inplace=True)
 agenda.columns = ['fornecedor', 'valor', 'parcela', 'data']
 agenda['semana'] = [x.isocalendar()[1] for x in agenda['data']]
 
+"""Peso"""
+
 peso = pd.pivot_table(agenda, index='semana', values='valor', aggfunc='sum')
 
 """#Análise de Compras
-Requer API Tiny
+Requer API do ERP
 """
 
 token = '2b6fc7102240cedcc9166c43921ea73eea82b876'
