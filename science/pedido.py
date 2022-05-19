@@ -60,7 +60,7 @@ peso = pd.pivot_table(agenda, index='semana', values='valor', aggfunc='sum')
 Requer API Tiny
 """
 
-token = '2b6fc7102240cedcc9166c43921ea73eea82b876'
+token = ''
 
 """Vendas"""
 
