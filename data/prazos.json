@@ -1,0 +1,37 @@
+{
+    "porc\u00e3o": {
+        "parcela 1": 7,
+        "parcela 2": 14,
+        "parcela 3": 21
+    },
+    "gat\u00e3o": {
+        "parcela 1": 14,
+        "parcela 2": 28,
+        "parcela 3": 0
+    },
+    "marfrig": {
+        "parcela 1": 7,
+        "parcela 2": 0,
+        "parcela 3": 0
+    },
+    "danta": {
+        "parcela 1": 30,
+        "parcela 2": 0,
+        "parcela 3": 0
+    },
+    "cara preta": {
+        "parcela 1": 14,
+        "parcela 2": 28,
+        "parcela 3": 0
+    },
+    "dona beth": {
+        "parcela 1": 7,
+        "parcela 2": 14,
+        "parcela 3": 0
+    },
+    "recheados brasil": {
+        "parcela 1": 14,
+        "parcela 2": 0,
+        "parcela 3": 0
+    }
+}

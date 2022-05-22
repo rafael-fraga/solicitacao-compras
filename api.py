@@ -1,18 +1,25 @@
 from flask import *
-import json, os
+import os
 
 app = Flask(__name__)
 
-data_dir = os.getcwd() + '\\data\\'
-
+cdir = os.getcwd() + '\\data\\'
 
 @app.route('/', methods=['GET'])
 def index():
-    f = open(data_dir + 'produtos.json', 'r')
-    produtos_json = f.read()
+    return 'index'
 
-    return json.dumps(produtos_json)
+@app.route('/pedido', methods=['GET'])
+def pedido():
+    return open(cdir + 'pedido.json', 'r').read()
 
+@app.route('/prazos', methods=['GET'])
+def prazos():
+    return open(cdir + 'prazos.json', 'r').read()
 
-if __name__ == '__main__':
-    app.run()
+@app.route('/relatorio', methods=['POST'])
+def relatorio():
+    relatorio = request.data
+    return relatorio
+
+app.run()
