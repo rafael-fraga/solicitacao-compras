@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "produto": "picanha",
+      "estoque atual": "100",
+      "estoque minimo": 99,
+      "situacao": "fodase picanha"
+    },
+    {
+      "produto": "coracaozinho",
+      "estoque atual": "2",
+      "estoque minimo": 2,
+      "situacao": "fodase coracao"
+    },
+    {
+      "produto": "teste",
+      "estoque atual": 1000,
+      "estoque minimo": 99,
+      "situacao": "fodase teste"
+    }
+  ]
+}
