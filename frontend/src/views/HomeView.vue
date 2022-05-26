@@ -1,18 +1,24 @@
 <template>
-  <GridView />
+<div>
+  <Estoque class="card"/>
+  <InputPedido />
+  </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue'
-  import GridView from '../components/GridView.vue'
-  // import EstoqueView from '../components/EstoqueView.vue'
+  import Estoque from '../components/Estoque/GridEstoque.vue'
 
   export default Vue.extend({
     name: 'MainPage',
 
     components: {
-      GridView,
-      // EstoqueView,
+      Estoque,
     },
   })
 </script>
+<style scoped>
+.card {
+  padding: 20px 50px 20px 50px;
+}
+</style>

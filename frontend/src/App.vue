@@ -2,26 +2,18 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      color="red"
       dark
     >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+      <!-- <div class="d-flex align-center">
 
         <v-img
           alt="Vuetify Name"
           class="shrink mt-1 hidden-sm-and-down"
           contain
           min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
+          src="https://brazas.com.br/bh/wp-content/uploads/sites/3/2021/04/brazas_branco_slogan.png"
+          width="240"
         />
       </div>
 
@@ -34,7 +26,7 @@
       >
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      </v-btn> -->
     </v-app-bar>
 
     <v-main>
