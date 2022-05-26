@@ -1,5 +1,5 @@
 import pandas as pd
-import requests, json
+import requests
 from time import sleep
 
 
@@ -18,7 +18,7 @@ def post_rota_produtos():
             produtos += [x['produto'] for x in session['retorno']['produtos']]
         except:
             break
-    produtos = pd.DataFrame(produtos)
+    produtos = pd.DataFrame(produtos[:50])
 
     # Apurar databaset completo de produtos
     produtos_completos = list()
@@ -61,6 +61,7 @@ def post_rota_produtos():
             sleep(60)
             estoque += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.estoque.php', data=data).json()['retorno']['produto']]
     produtos_estoque['estoque'] = estoque
+    produtos_estoque.drop(['codigo', 'unidade', 'estoque_minimo', 'slug'], axis=1, inplace=True)
 
     # POST /produtos
     return produtos_estoque.to_dict(orient='records')
