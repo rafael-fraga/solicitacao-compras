@@ -1,6 +1,6 @@
 from flask import *
 import os
-import science.produtos, science.produtos
+import science.produtos
 
 app = Flask(__name__)
 
@@ -14,17 +14,9 @@ def index():
 # INICIALIZAÇÃO
 
 # estoque (grid)
-@app.route('/estoque', methods=['GET'])
-def estoque():
-    return json.dumps(science.produtos.get_estoque())
-
-
-
-
-
-
-
-
+@app.route('/produtos', methods=['GET'])
+def produtos():
+    return json.dumps(science.produtos.post_rota_produtos())
 
 
 # FINALIZAÇÃOs
@@ -37,19 +29,12 @@ def pedido():
     return 'Análise concluída.'
 
 
-
-
-
-
-
-
 ## VARIÁVEIS DA ANÁLISE
 
 # prazos
 @app.route('/prazos', methods=['GET'])
 def prazos():
     return open(cdir + 'prazos.json', 'r').read()
-
 
 @app.route('/relatorio', methods=['POST'])
 def relatorio():

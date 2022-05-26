@@ -1,10 +1,10 @@
-def analise(pedido):
-    from pprint import pprint
-    import pandas as pd
-    import numpy as np
-    from datetime import datetime, timedelta, date
-    import requests, os, json
+from pprint import pprint
+import pandas as pd
+import numpy as np
+from datetime import datetime, timedelta, date
+import requests, os, json
 
+def analise(pedido):
 
     # datetime
     def dmy(date):
