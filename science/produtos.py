@@ -31,6 +31,7 @@ def post_rota_produtos():
         try:
             produtos_completos += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.php', data=data).json()['retorno']['produto']]
         except:
+            print('limite de requisições')
             sleep(60)
             produtos_completos += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.php', data=data).json()['retorno']['produto']]
     produtos_completos = pd.DataFrame(produtos_completos)
@@ -40,7 +41,7 @@ def post_rota_produtos():
     produtos_filtrados = produtos_filtrados[produtos_filtrados['slug'] != '']
 
     # Limpeza de dados
-    produtos_formatados = produtos_filtrados.drop(['preco', 'marca', 'preco_promocional', 'ncm', 'origem', 'gtin', 'gtin_embalagem', 'localizacao', 'peso_liquido', 'peso_bruto', 'estoque_maximo', 'id_fornecedor', 'codigo_fornecedor', 'codigo_pelo_fornecedor', 'unidade_por_caixa', 'preco_custo', 'preco_custo_medio', 'situacao', 'tipo', 'classe_ipi', 'valor_ipi_fixo', 'cod_lista_servicos', 'descricao_complementar', 'garantia', 'cest', 'obs', 'tipoVariacao', 'variacoes', 'idProdutoPai', 'sob_encomenda', 'dias_preparacao', 'tipoEmbalagem', 'alturaEmbalagem', 'comprimentoEmbalagem', 'larguraEmbalagem', 'diametroEmbalagem', 'categoria', 'anexos', 'imagens_externas', 'classe_produto', 'seo_title', 'seo_keywords', 'link_video', 'seo_description', 'kit'], axis=1)
+    produtos_formatados = produtos_filtrados.drop(['preco', 'marca', 'preco_promocional', 'ncm', 'origem', 'gtin', 'gtin_embalagem', 'localizacao', 'peso_liquido', 'peso_bruto', 'estoque_maximo', 'id_fornecedor', 'codigo_fornecedor', 'codigo_pelo_fornecedor', 'unidade_por_caixa', 'preco_custo', 'preco_custo_medio', 'situacao', 'tipo', 'classe_ipi', 'valor_ipi_fixo', 'cod_lista_servicos', 'descricao_complementar', 'garantia', 'cest', 'obs', 'tipoVariacao', 'variacoes', 'idProdutoPai', 'sob_encomenda', 'dias_preparacao', 'tipoEmbalagem', 'alturaEmbalagem', 'comprimentoEmbalagem', 'larguraEmbalagem', 'diametroEmbalagem', 'categoria', 'anexos', 'imagens_externas', 'classe_produto', 'seo_title', 'seo_keywords', 'link_video', 'seo_description'], axis=1)
 
     # unidade
     produtos_formatados['unidade'] = produtos_formatados['unidade'].str.casefold()
@@ -58,6 +59,7 @@ def post_rota_produtos():
         try:
             estoque += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.estoque.php', data=data).json()['retorno']['produto']['saldo']]
         except:
+            print('limite de requisições')
             sleep(60)
             estoque += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.estoque.php', data=data).json()['retorno']['produto']]
     produtos_estoque['estoque'] = estoque
