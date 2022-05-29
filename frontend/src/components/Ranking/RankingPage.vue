@@ -200,7 +200,7 @@ export default {
       this.desserts.forEach((item) => {
         item.valorfinal = item.valorfinal.split(' ')[1]
       })
-
+    console.log(this.desserts);
     fetch('Sua rota POST aqui', {
       method: 'POST',
       headers: {
