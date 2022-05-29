@@ -55,7 +55,7 @@ def post_rota_produtos():
 
     print('Importando estoque individual')
 
-    # POST /produtos
+    # Apuração do estoque
     produtos_estoque = produtos_formatados
     estoque = list()
     for id in produtos_estoque['id']:
@@ -73,6 +73,7 @@ def post_rota_produtos():
             estoque += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.estoque.php', data=data).json()['retorno']['produto']]
     produtos_estoque['estoque'] = estoque
 
+    # finalização do dataset
     produtos_final = produtos_estoque
     produtos_final['cotacao'] = 0
     produtos_final['quantidade'] = 0
