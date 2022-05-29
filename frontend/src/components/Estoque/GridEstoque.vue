@@ -26,7 +26,7 @@
       <v-text-field
         v-model="search"
         append-icon="mdi-magnify"
-        label="Procurar produto"
+        label="Procurar (Codigo, Produto, Marca, Estoque, Situacao)"
         single-line
         hide-details
       ></v-text-field>
@@ -36,7 +36,15 @@
       :items="produtos"
       :search="search"
       :loading="barra"
-    ></v-data-table>
+    >
+      <template v-slot:[`item.situacao`]="{ item }">
+        <v-chip
+        :color="getColor(item.situacao)"
+        >
+        {{ item.situacao }}
+        </v-chip>
+      </template>
+    </v-data-table>
   </v-card>
   </div>
 </template>
@@ -46,62 +54,35 @@ export default {
   data: function () {
     return {
       search: '',
-      loading: 0,
-      barra: true,
       headers: [
         {
-          text: "Produto",
+          text: "Codigo",
           align: "start",
-          value: "produto",
+          value: "codigo",
         },
-        { text: "Estoque atual", value: "estoqueatual" },
-        { text: "Estoque minimo", value: "estoqueminimo" },
+        { text: "Produto", value: "nome"},
+        { text: "Marca", value: "marca"},
+        { text: "Estoque atual", value: "estoque" },
+        { text: "Estoque minimo", value: "estoque_minimo" },
         { text: "Situacao", value: "situacao" },
       ],
-      produtos: [],
-      apiUrl: "https://628b088d667aea3a3e25f63a.mockapi.io/estoque",
     };
   },
-  created: function() {
-    this.requestEstoque();
+  props: {
+    produtos: Array,
+    loading: String,
+    barra: Boolean,
   },
   methods: {
-    requestEstoque(){
-      this.loading = 'waiting';
-      let apiResponse;
-
-      fetch(this.apiUrl).then(async (response) => {
-        apiResponse = await response.json();
-
-        if (!response.ok) {
-          this.loading = 'error';
-          const error = (apiResponse && apiResponse.message) || response.statusText;
-          return Promise.reject(error);
-        }
-
-        this.loading = 'success';
-
-        this.produtos = apiResponse.map((produto) => {
-          produto.estoqueatual > produto.estoqueminimo
-            ? (produto.situacao = "ABAIXO do minimo")
-            : (produto.situacao = "ACIMA do minimo");
-          return produto;
-        });
-
-        if (this.loading !== 'error') {
-          setTimeout(() => {
-            this.loading = undefined;
-          }, 4500);
-        }
-        this.barra = false;
-      })
-      .catch((error) => {
-        this.loading = 'error';
-        this.errorMessage = error;
-        console.error("There was an error!", error);
-        this.barra = false;
-      });
-    }
+    getColor (situacao){
+      if(situacao == 'Abaixo do estoque'){
+        return 'red';
+      } else if (situacao == 'Neutro'){
+        return 'grey';
+      } else{
+        return 'green';
+      }
+    },
   }
 };
 </script>
