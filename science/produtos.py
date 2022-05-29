@@ -77,6 +77,7 @@ def post_rota_produtos():
     produtos_final['cotacao'] = 0
     produtos_final['quantidade'] = 0
     produtos_final['disponivel'] = False
+    produtos_final['valortotal'] = 0
     
     # POST /produtos
     return produtos_final.to_dict(orient='records')

@@ -1,13 +1,11 @@
 <template>
   <div>
     <Estoque
-      class="card"
       :produtos="this.produtos"
       :loading="this.loading"
       :barra="this.barra"
     />
     <Ranking
-      class="card"
       :produtos="this.produtos"
       :slug="this.slug"
       :fornecedores="this.fornecedores"
@@ -30,7 +28,7 @@ export default Vue.extend({
   data: function () {
     return {
       produtos: [],
-      apiUrl: "https://628b088d667aea3a3e25f63a.mockapi.io/produtos",
+      apiUrl: "https://628b088d667aea3a3e25f63a.mockapi.io/produtos", // Sua rota GET aqui
       loading: "",
       barra: true,
       slug: [],
@@ -60,11 +58,11 @@ export default Vue.extend({
 
           // this.produtos = apiResponse.map((produto) => {
           // if(produto.estoque < produto.estoque_minimo){
-          //   produto.situacao = "Abaixo do estoque"
+          //   produto.situacao = "'Abaixo do estoque.⠀⠀⠀⠀⠀⠀⠀⠀⠀'"
           // } else if(produto.estoque > produto.estoque_minimo){
-          //   produto.situacao = `Acima do estoque em ${parseFloat(item.estoque - item.estoque_minimo).toFixed(2)} ${item.unidade}`
+          //   produto.situacao = `Acima do estoque em ${parseFloat(item.estoque - item.estoque_minimo).toFixed(2)} ${item.unidade}⠀⠀`
           // } else {
-          //   produto.situacao = "Neutro"
+          //   produto.situacao = "Estoque mínimo não cadastrado."
           // }
           //   produto.estoque += ' ' + produto.unidade
           //   produto.estoque_minimo += ' ' + produto.unidade
@@ -86,6 +84,9 @@ export default Vue.extend({
               slug: "Alcatra",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ALMOBARB",
@@ -97,6 +98,9 @@ export default Vue.extend({
               slug: "Almôndega",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ALMOQRB",
@@ -108,6 +112,9 @@ export default Vue.extend({
               slug: "Almôndega",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ANCHALI",
@@ -119,6 +126,9 @@ export default Vue.extend({
               slug: "Ancho",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ANCHDIPDI",
@@ -130,6 +140,9 @@ export default Vue.extend({
               slug: "Ancho",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ANCHMINERV",
@@ -141,6 +154,9 @@ export default Vue.extend({
               slug: "Ancho",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ANCHMOSTKMA",
@@ -152,6 +168,9 @@ export default Vue.extend({
               slug: "Ancho",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ASARECHRB",
@@ -163,6 +182,9 @@ export default Vue.extend({
               slug: "Asinha",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "ASSTIRARG",
@@ -174,6 +196,9 @@ export default Vue.extend({
               slug: "Assado",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "BACNFATDNT",
@@ -185,6 +210,9 @@ export default Vue.extend({
               slug: "Bacon",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "BUTCHPORC",
@@ -196,6 +224,9 @@ export default Vue.extend({
               slug: "Butcher",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "CARPACCP",
@@ -207,6 +238,9 @@ export default Vue.extend({
               slug: "Carpaccio",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "CARREPLE",
@@ -218,6 +252,9 @@ export default Vue.extend({
               slug: "Carré Cordeiro",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "CHRZEST92",
@@ -229,6 +266,9 @@ export default Vue.extend({
               slug: "Chorizo",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "CORAGAT",
@@ -240,6 +280,9 @@ export default Vue.extend({
               slug: "Coração",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "COSTDIADIA",
@@ -251,6 +294,9 @@ export default Vue.extend({
               slug: "Costelinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "COSTBBQRB",
@@ -262,6 +308,9 @@ export default Vue.extend({
               slug: "Costelinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "COWBCP",
@@ -273,6 +322,9 @@ export default Vue.extend({
               slug: "Cowboy",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "COXINGAT",
@@ -284,6 +336,9 @@ export default Vue.extend({
               slug: "Coxinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "DENVCP",
@@ -295,6 +350,9 @@ export default Vue.extend({
               slug: "Denver",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDMINE",
@@ -306,6 +364,9 @@ export default Vue.extend({
               slug: "Fralda",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDBG",
@@ -317,6 +378,9 @@ export default Vue.extend({
               slug: "Falda",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRLDURUESTR",
@@ -328,6 +392,9 @@ export default Vue.extend({
               slug: "Fralda",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDALI",
@@ -339,6 +406,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDBASS",
@@ -350,6 +420,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDCP",
@@ -361,6 +434,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDIEST92",
@@ -372,6 +448,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDLS",
@@ -383,6 +462,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDMTBOI",
@@ -394,6 +476,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDMNRVA",
@@ -405,6 +490,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRALDMONTANA",
@@ -416,6 +504,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "FRDIRERARO",
@@ -427,6 +518,9 @@ export default Vue.extend({
               slug: "Fraldinha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "HAMBCP",
@@ -438,6 +532,9 @@ export default Vue.extend({
               slug: "Hamburguer",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "HBRGTILP",
@@ -449,6 +546,9 @@ export default Vue.extend({
               slug: "Hamburguer",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "KAFTCHED",
@@ -460,6 +560,9 @@ export default Vue.extend({
               slug: "Kafta",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGPERPRC",
@@ -471,6 +574,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGARTTLP",
@@ -482,6 +588,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRAZBAC",
@@ -493,6 +602,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRZBQA",
@@ -504,6 +616,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRZSFRG",
@@ -515,6 +630,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRAZPIM",
@@ -526,6 +644,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRAZPIMBIQ",
@@ -537,6 +658,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRAZPRVL",
@@ -548,6 +672,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGBRAZTRAD",
@@ -559,6 +686,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGCUIABO",
@@ -570,6 +700,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGCORDARG",
@@ -581,6 +714,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGCOSCP",
@@ -592,6 +728,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "LINGPERNGARA",
@@ -603,6 +742,9 @@ export default Vue.extend({
               slug: "Linguiça",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "MAMIMINE",
@@ -623,6 +765,9 @@ export default Vue.extend({
                 saldo: 1.41,
                 unidade: "kg",
                 disponivel: false,
+                cotacao: 0,
+                quantidade: 0,
+                valorfinal: 0,
               },
               estoque_minimo: 0.0,
               id: "794827835",
@@ -631,6 +776,9 @@ export default Vue.extend({
               slug: "Maminha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "MAMSTKPORC",
@@ -642,6 +790,9 @@ export default Vue.extend({
               slug: "Maminha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "MANTSUINCHED",
@@ -653,6 +804,9 @@ export default Vue.extend({
               slug: "Manta Suína",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "MANTSUINQC",
@@ -664,6 +818,9 @@ export default Vue.extend({
               slug: "Manta Suína",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "MEDBATCHED",
@@ -675,6 +832,9 @@ export default Vue.extend({
               slug: "Medalhão",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "MEDSURB",
@@ -686,6 +846,9 @@ export default Vue.extend({
               slug: "Medalhão",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PDFDNBT",
@@ -697,6 +860,9 @@ export default Vue.extend({
               slug: "Pão de frango",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICAALIM",
@@ -708,6 +874,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICANBLKAMI",
@@ -719,6 +888,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICARREB",
@@ -730,6 +902,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICARRBA",
@@ -741,6 +916,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICBASSI",
@@ -752,6 +930,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICBRAZ",
@@ -763,6 +944,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICCP",
@@ -774,6 +958,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICCONCARSA",
@@ -785,6 +972,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICCRSUL",
@@ -796,6 +986,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICADIPRI",
@@ -807,6 +1000,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICFINEXIMP",
@@ -818,6 +1014,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICFRIGOIMP",
@@ -829,6 +1028,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICAFRIGO",
@@ -840,6 +1042,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICFRPA",
@@ -851,6 +1056,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICAGORI",
@@ -862,6 +1070,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICGUARANI",
@@ -873,6 +1084,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICAMATBOI",
@@ -884,6 +1098,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICAMINE",
@@ -895,6 +1112,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICPARAG",
@@ -906,6 +1126,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICPUB",
@@ -917,6 +1140,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICAPULLA",
@@ -928,6 +1154,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSTGIU",
@@ -939,6 +1168,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSUIALI",
@@ -950,6 +1182,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSUICIAC",
@@ -961,6 +1196,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSUIMEL",
@@ -972,6 +1210,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSUISDL",
@@ -983,6 +1224,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSUISCHR",
@@ -994,6 +1238,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICSTEMP",
@@ -1005,6 +1252,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PICTACUA",
@@ -1016,6 +1266,9 @@ export default Vue.extend({
               slug: "Picanha",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PCLMINRBBBQ",
@@ -1027,6 +1280,9 @@ export default Vue.extend({
               slug: "Picolé Mineiro",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PCLMINRBEF",
@@ -1038,6 +1294,9 @@ export default Vue.extend({
               slug: "Picolé Mineiro",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PORCHRB",
@@ -1049,6 +1308,9 @@ export default Vue.extend({
               slug: "Porchetta",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PORTHOUSCP",
@@ -1060,6 +1322,9 @@ export default Vue.extend({
               slug: "Porterhouse",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "PRMRIBRARO",
@@ -1071,6 +1336,9 @@ export default Vue.extend({
               slug: "Prime Rib",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SALSIGAT",
@@ -1082,6 +1350,9 @@ export default Vue.extend({
               slug: "Salsichão",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SALSIQUESCHR",
@@ -1093,6 +1364,9 @@ export default Vue.extend({
               slug: "Salsichão",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SHRTARG",
@@ -1104,6 +1378,9 @@ export default Vue.extend({
               slug: "Short Rib",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SHRTCP",
@@ -1115,6 +1392,9 @@ export default Vue.extend({
               slug: "Short Rib",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SHRTRIBRARO",
@@ -1126,6 +1406,9 @@ export default Vue.extend({
               slug: "Short Rib",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SOBREGAT",
@@ -1137,6 +1420,9 @@ export default Vue.extend({
               slug: "Sobrecoxa Desossada",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "SOBRPRC",
@@ -1148,6 +1434,9 @@ export default Vue.extend({
               slug: "Sobrecoxa Desossada",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "STKLOMBDIA",
@@ -1159,6 +1448,9 @@ export default Vue.extend({
               slug: "Steak",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "TBONECP",
@@ -1170,6 +1462,9 @@ export default Vue.extend({
               slug: "T-Bone",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "TBONMINE",
@@ -1181,6 +1476,9 @@ export default Vue.extend({
               slug: "T-Bone",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "TBNERARO",
@@ -1192,6 +1490,9 @@ export default Vue.extend({
               slug: "T-Bone",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "TOMARARO",
@@ -1203,6 +1504,9 @@ export default Vue.extend({
               slug: "Tomahawk",
               unidade: "kg",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
             {
               codigo: "TLPA",
@@ -1214,29 +1518,25 @@ export default Vue.extend({
               slug: "Tulipa",
               unidade: "un",
               disponivel: false,
+              cotacao: 0,
+              quantidade: 0,
+              valorfinal: 0,
             },
           ];
 
           this.produtos.forEach((item) => {
             if(item.estoque < item.estoque_minimo){
-              item.situacao = "Abaixo do estoque"
+              item.situacao = "Abaixo do estoque.⠀⠀⠀⠀⠀⠀⠀⠀⠀"
             } else if(item.estoque > item.estoque_minimo){
-              item.situacao = `Acima do estoque em ${parseFloat(item.estoque - item.estoque_minimo).toFixed(2)} ${item.unidade}`
+              item.situacao = `Acima do estoque em ${parseFloat(item.estoque - item.estoque_minimo).toFixed(1)} ${item.unidade}⠀⠀`
             } else {
-              item.situacao = "Neutro"
+              item.situacao = "Estoque mínimo não cadastrado."
             }
             this.slug.unshift(item.slug)
             this.fornecedores.unshift(item.marca)
           })
-
           this.fornecedores = this.fornecedores.reverse();
           this.slug = this.slug.reverse();
-
-          if (this.loading !== "error") {
-            setTimeout(() => {
-              this.loading = "undefined";
-            }, 4500);
-          }
           this.barra = false;
         })
         .catch((error) => {
@@ -1250,7 +1550,5 @@ export default Vue.extend({
 });
 </script>
 <style>
-.card {
-  padding: 20px 50px 20px 50px;
-}
+
 </style>
