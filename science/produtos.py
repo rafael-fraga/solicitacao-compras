@@ -72,8 +72,12 @@ def post_rota_produtos():
             print('Continuando.')
             estoque += [requests.post(url='https://api.tiny.com.br/api2/produto.obter.estoque.php', data=data).json()['retorno']['produto']]
     produtos_estoque['estoque'] = estoque
+
+    produtos_final = produtos_estoque
+    produtos_final['cotacao'] = 0
+    produtos_final['disponivel'] = False
     
     # POST /produtos
-    return produtos_estoque.to_dict(orient='records')
+    return produtos_final.to_dict(orient='records')
 
 
