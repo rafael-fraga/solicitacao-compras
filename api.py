@@ -2,6 +2,7 @@ from flask import *
 import os
 import science.produtos
 
+## temporizador de uma semana
 produtos_f = json.dumps(science.produtos.post_rota_produtos())
 
 app = Flask(__name__)
@@ -35,7 +36,7 @@ def prazos():
     return open(cdir + 'prazos.json', 'r').read()
 
 
-@app.route('/relatorio', methods=['POST'])
+@app.route('/relatorio', methods=['GET'])
 def relatorio():
     return request.get_data()
 
