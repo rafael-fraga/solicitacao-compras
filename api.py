@@ -20,8 +20,8 @@ def checkLastUpdate():
     time.sleep(60 * 60 * 24 * 3)
     checkLastUpdate()
 
-produtos_f = ''
-checkLastUpdate()
+# produtos_f = ''
+# checkLastUpdate()
 
 ## temporizador de uma semana
 produtos_f = json.dumps(science.produtos.post_rota_produtos())
