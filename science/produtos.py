@@ -75,6 +75,7 @@ def post_rota_produtos():
 
     produtos_final = produtos_estoque
     produtos_final['cotacao'] = 0
+    produtos_final['quantidade'] = 0
     produtos_final['disponivel'] = False
     
     # POST /produtos
