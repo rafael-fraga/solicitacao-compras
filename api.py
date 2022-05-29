@@ -2,26 +2,6 @@ import time
 from flask import *
 import os
 import science.produtos
-from datetime import date, datetime
-
-## fiz a funcao do temporizador, agora voce precisa arrumar as linhas (15-16) e (18-19)
-def checkLastUpdate():
-    today = date.today()
-    with open('./science/cache/lastupdate', 'r') as lastupdate:
-        lines = lastupdate.readlines()
-    lastSave = datetime.strptime(lines[0], "%Y-%m-%d").date()
-    dif = str(today - lastSave).split()
-    if int(dif[0]) < 6:
-        # produtos_f recebe o json salvo
-        print('leia o json salvo em cache e responde ele no get')
-    else:
-        # produtos_f = json.dumps(science.produtos.post_rota_produtos())
-        print('salve um json novo em cache e responde ele no get')
-    time.sleep(60 * 60 * 24 * 3)
-    checkLastUpdate()
-
-# produtos_f = ''
-# checkLastUpdate()
 
 ## temporizador de uma semana
 produtos_f = json.dumps(science.produtos.post_rota_produtos())
