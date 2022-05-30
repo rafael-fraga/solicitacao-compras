@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, response
+from flask import Flask, jsonify, Request
 import os
 import produtos, science.analise
 
@@ -28,7 +28,8 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    response = jsonify(request.get_data())
+    print(Request.get_data())
+    response = 'oi'
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
