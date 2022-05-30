@@ -1,5 +1,4 @@
-from urllib import response
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, response
 import os
 import produtos, science.analise
 
@@ -29,9 +28,9 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    retono = request.form.to_dict()
+    response = jsonify(request.form.to_dict())
     response.headers.add("Access-Control-Allow-Origin", "*")
-    return jsonify(response), retono, 'ok'
+    return response, 'ok'
 
 
 if __name__ == '__main__':
