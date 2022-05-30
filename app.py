@@ -26,7 +26,7 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    resultado = science.analise.rota_pedido(request.get_data())
+    resultado = request.get_data()
     return jsonify(resultado)
 
 
