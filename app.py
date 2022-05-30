@@ -29,9 +29,8 @@ def produtos():
 @app.route('/pedido', methods=['POST'])
 def pedido():
     print(Request.data)
-    response = 'oi'
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    return response
+    Response.headers.add("Access-Control-Allow-Origin", "*")
+    return Request.data
 
 
 if __name__ == '__main__':
