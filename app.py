@@ -28,6 +28,7 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
+    print(request.json)
     return jsonify(request.json)
 
 
