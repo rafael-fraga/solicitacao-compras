@@ -3,7 +3,7 @@ import requests
 from time import sleep
 
 
-def post_rota_produtos():
+def rota_produtos():
 
     print('Importando produtos.')
 

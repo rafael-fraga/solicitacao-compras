@@ -1,10 +1,9 @@
 from flask import Flask, jsonify, request
 import os
 import science.produtos, science.analise
-import produtos
 
 ## temporizador de uma semana
-produtos_f = produtos.produtos_static
+produtos_f = science.produtos.rota_produtos()
 
 app = Flask(__name__)
 
@@ -27,6 +26,7 @@ def produtos():
 @app.route('/pedido', methods=['POST'])
 def pedido():
     resultado = request.get_data()
+    print(resultado)
     return jsonify(resultado)
 
 
