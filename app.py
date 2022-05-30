@@ -28,10 +28,11 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    response = 'success'
+    response = jsonify({'status': 'success'})
     print(type(jsonify(request.json)))
     response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add('Access-Control-Expose-Headers', '*')
+    return response
 
 
 if __name__ == '__main__':
