@@ -1,10 +1,10 @@
-import time
 from flask import *
 import os
-import science.produtos
+import science.produtos, science.analise
 
 ## temporizador de uma semana
 produtos_f = json.dumps(science.produtos.post_rota_produtos())
+os.system('cls')
 
 app = Flask(__name__)
 
@@ -26,20 +26,8 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    science.pedidos.analise(json.loads(request.get_data()))
-    return 'Análise concluída.'
-
-
-## VARIÁVEIS DA ANÁLISE
-# prazos
-@app.route('/prazos', methods=['GET'])
-def prazos():
-    return open(cdir + 'prazos.json', 'r').read()
-
-
-@app.route('/relatorio', methods=['GET'])
-def relatorio():
-    return request.get_data()
+    resultado = science.analise.rota_pedido('./science/pedido.json')
+    return json.dumps(resultado)
 
 
 if __name__ == '__main__':
