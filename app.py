@@ -3,8 +3,7 @@ import os
 import science.produtos, science.analise
 
 ## temporizador de uma semana
-produtos_f = json.dumps(science.produtos.post_rota_produtos())
-os.system('cls')
+produtos_f = json.dumps(open('./science/produtos.json', 'r').read())
 
 app = Flask(__name__)
 
@@ -26,7 +25,7 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    resultado = science.analise.rota_pedido('./science/pedido.json')
+    resultado = science.analise.rota_pedido(request.get_data())
     return json.dumps(resultado)
 
 
