@@ -1,6 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 import os
 import science.produtos, science.analise
+import json
 
 ## temporizador de uma semana
 produtos_f = json.dumps(open('./science/produtos.json', 'r').read())
