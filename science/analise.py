@@ -16,7 +16,7 @@ def rota_pedido(pedido_post):
 
     # ## Pedido
     # pedido
-    pedido = pd.read_json(pedido_post)
+    pedido = pd.DataFrame(pedido_post)
     pedido['valorfinal'] = pd.to_numeric([x.split()[1] for x in pedido['valorfinal']])
     pedido = pd.pivot_table(pedido, values=['valorfinal'], index='marca', aggfunc='sum').reset_index()
     pedido.columns = ['marca', 'total']
