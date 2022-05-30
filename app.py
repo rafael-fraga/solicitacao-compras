@@ -28,7 +28,7 @@ def produtos():
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
 def pedido():
-    response = jsonify(science.analise.rota_pedido(request.json))
+    response = jsonify(science.analise.rota_pedido(jsonify(request.json)))
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
