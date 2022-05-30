@@ -31,7 +31,6 @@ def pedido():
     response = science.analise.rota_pedido(jsonify(request.json))
     response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add('Access-Control-Expose-Headers', '*')
-    return response
 
 
 if __name__ == '__main__':
