@@ -11,6 +11,7 @@ cdir = os.getcwd() + '\\data\\'
 
 @app.route('/', methods=['GET'])
 def index():
+
     return 'index'
 
 
@@ -18,7 +19,9 @@ def index():
 # produtos
 @app.route('/produtos', methods=['GET'])
 def produtos():
-    return jsonify(produtos_f)
+    response = jsonify(produtos_f)
+    response.headers.add("Access-Control-Allow-Origin", "*")
+    return response
 
 
 # FINALIZAÇÃOs
