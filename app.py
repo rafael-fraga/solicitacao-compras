@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, response
+from flask import Flask, jsonify, request
 import os
 import produtos, science.analise
 
