@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask, jsonify
 import os
 import science.produtos, science.analise
 
@@ -18,7 +18,7 @@ def index():
 # produtos
 @app.route('/produtos', methods=['GET'])
 def produtos():
-    return produtos_f
+    return jsonify(produtos_f)
 
 
 # FINALIZAÇÃOs
