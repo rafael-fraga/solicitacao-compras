@@ -11,7 +11,7 @@ def rota_produtos():
     '''    # ## Apurar lista generalizada de produtos
     produtos = list()
     data = {'formato': 'json',
-            'token': '2b6fc7102240cedcc9166c43921ea73eea82b876',
+            'token': '##',
             'pesquisa': '',
             'pagina': 1}
     while True:
@@ -32,7 +32,7 @@ def rota_produtos():
     for id in ids:                                                   ## será removido antes do deploy
         data = {
             'formato': 'json',
-            'token': '2b6fc7102240cedcc9166c43921ea73eea82b876',
+            'token': '##',
             'id': id
         }
         try:
@@ -61,7 +61,7 @@ def rota_produtos():
     for id in produtos_estoque['id']:
         data = {
             'formato': 'json',
-            'token': '2b6fc7102240cedcc9166c43921ea73eea82b876',
+            'token': '##',
             'id': id
         }
         try:

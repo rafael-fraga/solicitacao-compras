@@ -50,7 +50,7 @@ def rota_pedido(pedido_post):
     vendas = list()
     data = {
         'formato': 'json',
-        'token': '2b6fc7102240cedcc9166c43921ea73eea82b876',
+        'token': '##',
         'dataInicial': two_months_ago.strftime('%d/%m/%Y'),
         'dataFinal': datetime.today().strftime('%d/%m/%Y'),
         'pagina': 1
@@ -74,7 +74,7 @@ def rota_pedido(pedido_post):
     contas = list()
     data = {
         'formato': 'json',
-        'token': '2b6fc7102240cedcc9166c43921ea73eea82b876',
+        'token': '##',
         'data_ini_vencimento': datetime.today().strftime('%d/%m/%Y'),
         'data_fim_vencimento': agenda['data'].max().strftime('%d/%m/%Y'),
         'pagina': 1
