@@ -1,17 +1,17 @@
 from flask import Flask, jsonify, request
 import os
 import produtos, science.analise
-
+from flask_cors import CORS
 ## temporizador de uma semana
 produtos_f = produtos.produtos_static
 
 app = Flask(__name__)
+CORS(app)
 
 cdir = os.getcwd() + '\\data\\'
 
 @app.route('/', methods=['GET'])
 def index():
-
     return 'index'
 
 
