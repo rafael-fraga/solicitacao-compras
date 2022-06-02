@@ -6,7 +6,7 @@ from flask_cors import CORS, cross_origin
 produtos_f = produtos.produtos_static
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://brazas-simulador-compras.herokuapp.com/"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 cdir = os.getcwd() + '\\data\\'
 
@@ -20,7 +20,7 @@ def index():
 @app.route('/produtos', methods=['GET'])
 def produtos():
     response = jsonify(produtos_f)
-    response.headers.add("Access-Control-Allow-Origin", "http://brazas-simulador-compras.herokuapp.com/")
+    response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
 
@@ -30,7 +30,7 @@ def produtos():
 @cross_origin(origin='*')
 def pedido():
     response = jsonify({'status': 'success', 'retorno': science.analise.rota_pedido(request.get_json())})
-    response.headers.add("Access-Control-Allow-Origin", "*")
+    # response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add('Access-Control-Allow-Headers', '*')
     return response
 
