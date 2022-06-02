@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import os
 import produtos, science.analise
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 ## temporizador de uma semana
 produtos_f = produtos.produtos_static
 
@@ -27,6 +27,7 @@ def produtos():
 # FINALIZAÇÃOs
 # pedido (output do front end)
 @app.route('/pedido', methods=['POST'])
+@cross_origin(origin='*')
 def pedido():
     response = jsonify({'status': 'success', 'retorno': science.analise.rota_pedido(request.get_json())})
     response.headers.add("Access-Control-Allow-Origin", "*")
