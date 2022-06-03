@@ -1,9 +1,8 @@
 from flask import Flask, jsonify, request
 import os
-import produtos, science.analise
+import science.produtos, science.analise
 from flask_cors import CORS, cross_origin
-## temporizador de uma semana
-produtos_f = produtos.produtos_static
+
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -19,7 +18,7 @@ def index():
 # produtos
 @app.route('/produtos', methods=['GET'])
 def produtos():
-    response = jsonify(produtos_f)
+    response = jsonify(science.produtos.rota_produtos())
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
