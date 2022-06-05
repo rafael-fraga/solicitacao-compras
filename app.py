@@ -16,9 +16,14 @@ def index():
 
 # INICIALIZAÇÃO
 # produtos
-@app.route('/produtos', methods=['GET'])
+@app.route('/estoque', methods=['POST'])
 def produtos():
-    response = jsonify(science.produtos.rota_produtos())
+    file = request.files
+    file['0'].save('./uploads/teste.csv')
+    response = jsonify({'status': 'success', 'retorno': 'json'})
+    # response = jsonify({'status': 'success', 'mensagem': 'coluna 3 errada', 'retorno': 'json'})
+    # response = jsonify({'status': 'error', 'mensagem': 'erro em tudo'})
+    # response = jsonify(science.produtos.rota_produtos())
     response.headers.add("Access-Control-Allow-Origin", "*")
     return response
 
