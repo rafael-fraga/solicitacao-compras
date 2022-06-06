@@ -1,16 +1,19 @@
 import pandas as pd
 import requests
 
+#pylint input_file='./data/estoque.xlsx'
 
-def rota_produtos(input_file):
+# rota '/estoque'
+def rota_estoque(input_file):
 
     # importação da contagem de estoque
     estoque = pd.read_excel(input_file).T.set_index(
         0).dropna(axis=0, how='all').T
-    estoque.drop(['Nº PEÇAS'], axis=1, inplace=True)
+    estoque.drop(['ESTOQUE'], axis=1, inplace=True)
     estoque.columns = ['nome', 'estoque']
     estoque['estoque'] = pd.to_numeric(estoque['estoque'], errors='coerce')
     estoque.dropna(inplace=True)
+    #pylint estoque
 
     # listagem de produtos tiny API
     produtos_id = list()
