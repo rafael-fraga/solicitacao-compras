@@ -33,7 +33,7 @@ def rota_estoque(input_file):
             break
 
     produtos_id = pd.DataFrame(produtos_id)
-    produtos_id = produtos_id.T.reindex(['id', 'nome', 'estoque']).T
+    produtos_id = produtos_id.T.reindex(['id', 'nome']).T
     produtos_id = estoque.merge(produtos_id)
 
     # requisição de dados completos do produto tiny API
@@ -51,5 +51,6 @@ def rota_estoque(input_file):
     produtos_formatados['disponivel'] = False
     produtos_formatados['quantidade'] = 0
     produtos_formatados['valorfinal'] = 0
+    produtos_formatados['estoque'] = produtos_id['estoque']
 
     return produtos_formatados.to_dict(orient='records')
