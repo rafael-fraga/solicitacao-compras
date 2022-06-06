@@ -22,7 +22,7 @@ def index():
 def produtos():
     file = request.files['0']
     file.save('./data/estoque.xlsx')
-    response = jsonify({'status': 'success', 'mensagem': 'Erro de autênticação na linha x.', 'retorno': science.produtos.rota_estoque('.data/estoque.xlsx')})
+    response = jsonify({'status': 'success', 'mensagem': 'Erro de autênticação na linha x.', 'retorno': science.produtos.rota_estoque('./data/estoque.xlsx')})
     # response = jsonify({'status': 'success', 'mensagem': 'coluna 3 errada', 'retorno': 'json'})
     # response = jsonify({'status': 'error', 'mensagem': 'erro em tudo'})
     # response = jsonify(science.produtos.rota_produtos())
