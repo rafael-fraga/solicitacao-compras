@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import os
-import science.produtos, science.analise
+import science.produtos
+import science.analise
 from flask_cors import CORS, cross_origin
 
 
@@ -8,6 +9,7 @@ app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
 cdir = os.getcwd() + '\\data\\'
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -19,8 +21,7 @@ def index():
 @app.route('/estoque', methods=['POST'])
 def produtos():
     file = request.files
-    file['0'].save('./uploads/teste.csv')
-    response = jsonify({'status': 'success', 'retorno': 'json'})
+    response = jsonify({'status': 'success', 'mensagem': 'Erro de autênticação na linha x.', 'retorno': science.produtos.rota_produtos(file['0'])})
     # response = jsonify({'status': 'success', 'mensagem': 'coluna 3 errada', 'retorno': 'json'})
     # response = jsonify({'status': 'error', 'mensagem': 'erro em tudo'})
     # response = jsonify(science.produtos.rota_produtos())
@@ -33,7 +34,8 @@ def produtos():
 @app.route('/pedido', methods=['POST'])
 @cross_origin(origin='*')
 def pedido():
-    response = jsonify({'status': 'success', 'retorno': science.analise.rota_pedido(request.get_json())})
+    response = jsonify(
+        {'status': 'success', 'retorno': science.analise.rota_pedido(request.get_json())})
     # response.headers.add("Access-Control-Allow-Origin", "*")
     response.headers.add('Access-Control-Allow-Headers', '*')
     return response
