@@ -35,8 +35,6 @@ def produtos():
 @app.route('/pedido', methods=['POST'])
 @cross_origin(origin='*')
 def pedido():
-    file = request.files['0']
-    file.save('./data/pedido.json()')
     response = jsonify(
         {'status': 'success', 'retorno': science.analise.rota_pedido(request.get_json())})
     # response.headers.add("Access-Control-Allow-Origin", "*")
