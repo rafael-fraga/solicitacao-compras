@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 
-#pylint input_file='./data/estoque.xlsx'
+#input_file='./data/estoque.xlsx'
 
 # rota '/estoque'
 def rota_estoque(input_file):
