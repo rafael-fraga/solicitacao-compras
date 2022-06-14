@@ -1,7 +1,7 @@
 import pandas as pd
 import requests
 
-#input_file='./data/estoque.xlsx'
+#input_file='../data/estoque.xlsx'
 
 # rota '/estoque'
 def rota_estoque(input_file):
@@ -37,6 +37,8 @@ def rota_estoque(input_file):
     produtos_id = estoque.merge(produtos_id)
 
     # requisição de dados completos do produto tiny API
+    print(requests.post('https://api.tiny.com.br/api2/produto.obter.php', {
+                                        'formato': 'json', 'token': '2b6fc7102240cedcc9166c43921ea73eea82b876', 'id': 623449734}).json()['retorno'])
     produtos_completos = [requests.post('https://api.tiny.com.br/api2/produto.obter.php', {
                                         'formato': 'json', 'token': '2b6fc7102240cedcc9166c43921ea73eea82b876', 'id': x}).json()['retorno']['produto'] for x in produtos_id['id']]
     produtos_completos = pd.DataFrame(produtos_completos).drop(['preco', 'preco_promocional', 'ncm', 'origem', 'gtin', 'gtin_embalagem', 'localizacao', 'peso_liquido', 'peso_bruto', 'estoque_maximo', 'id_fornecedor', 'codigo_fornecedor', 'codigo_pelo_fornecedor', 'unidade_por_caixa', 'preco_custo', 'preco_custo_medio', 'situacao', 'tipo', 'classe_ipi', 'valor_ipi_fixo', 'cod_lista_servicos',
