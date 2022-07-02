@@ -20,7 +20,7 @@ def rota_estoque(input_file):
 
     data = {
         'formato': 'json',
-        'token': '2b6fc7102240cedcc9166c43921ea73eea82b876',
+        'token': '<PRIVATE TOKEN>',
         'pagina': 1
     }
 
