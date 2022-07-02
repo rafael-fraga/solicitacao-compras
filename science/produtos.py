@@ -41,7 +41,7 @@ def rota_estoque(input_file):
     for id in produtos_id['id']:
         try:
             produtos_completos.append(requests.post('https://api.tiny.com.br/api2/produto.obter.php', {
-                                        'formato': 'json', 'token': '2b6fc7102240cedcc9166c43921ea73eea82b876', 'id': int(id)}).json()['retorno']['produto'])
+                                        'formato': 'json', 'token': '<PRIVATE TOKEN>', 'id': int(id)}).json()['retorno']['produto'])
         except:
             pass
 
